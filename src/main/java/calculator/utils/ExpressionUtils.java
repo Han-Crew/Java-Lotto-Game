@@ -15,4 +15,8 @@ public class ExpressionUtils {
         Matcher matcher = Pattern.compile(CUSTOM_SPLIT_PATTERN).matcher(expression);
         return matcher.find();
     }
+
+    public static Matcher getCustomMatch(String expression) {
+        return Pattern.compile(CUSTOM_SPLIT_PATTERN).matcher(expression);
+    }
 }
