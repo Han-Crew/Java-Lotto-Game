@@ -1,7 +1,9 @@
 package calculator.domain;
 
 public class StringSplitter {
-    public StringSplitter(Expression expression) {
+    private Expression expression;
 
+    public StringSplitter(Expression expression) {
+        this.expression = expression;
     }
 }
