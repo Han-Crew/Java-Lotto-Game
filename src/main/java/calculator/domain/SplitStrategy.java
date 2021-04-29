@@ -4,5 +4,5 @@ import java.util.List;
 
 @FunctionalInterface
 public interface SplitStrategy {
-    List<Integer> splitNumbers();
+    List<Integer> splitNumbers(String expression);
 }
