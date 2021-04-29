@@ -17,37 +17,37 @@ public class ExpressionUtilTest {
         @Test
         public void 숫자_유효성_테스트() {
             String expression = "123";
-            assertThat(ExpressionUtils.isRightExpression(expression)).isEqualTo(true);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(true);
         }
 
         @Test
         public void 콜론_유효성_테스트() {
             String expression = "1:2:3";
-            assertThat(ExpressionUtils.isRightExpression(expression)).isEqualTo(true);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(true);
         }
 
         @Test
         public void 쉼표_유효성_테스트() {
             String expression = "1,2,3";
-            assertThat(ExpressionUtils.isRightExpression(expression)).isEqualTo(true);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(true);
         }
 
         @Test
         public void 콜론_쉼표_유효성_테스트() {
             String expression = "1,2:3";
-            assertThat(ExpressionUtils.isRightExpression(expression)).isEqualTo(true);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(true);
         }
 
         @Test
         public void 다른_문자_유효성_실패_테스트() {
             String expression = "1.2[3";
-            assertThat(ExpressionUtils.isRightExpression(expression)).isEqualTo(false);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(false);
         }
 
         @Test
         public void 알파벳_유효성_실패_테스트() {
             String expression = "a,b:W";
-            assertThat(ExpressionUtils.isRightExpression(expression)).isEqualTo(false);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(false);
         }
 
         @Test
@@ -82,6 +82,12 @@ public class ExpressionUtilTest {
         @Test
         public void 커스텀_문자열_테스트() {
             String 커스텀_문자열 = "//;\n3;5;1";
+            assertThat(ExpressionUtils.isCustomExpression(커스텀_문자열)).isEqualTo(true);
+        }
+
+        @Test
+        public void 커스텀_문자열_테스트2() {
+            String 커스텀_문자열 = "//]\n3]5]1";
             assertThat(ExpressionUtils.isCustomExpression(커스텀_문자열)).isEqualTo(true);
         }
     }
