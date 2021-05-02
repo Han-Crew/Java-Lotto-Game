@@ -23,7 +23,7 @@ public class CustomSplitStrategy implements SplitStrategy {
                     .collect(Collectors.toList());
         }
 
-        NumbersUtils.validateNumberSize(numbers);
+        NumbersUtils.validateNumbers(numbers);
         return numbers;
     }
 }
