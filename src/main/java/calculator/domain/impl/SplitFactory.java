@@ -22,6 +22,6 @@ public class SplitFactory {
             return new BlankSplitStrategy();
         }
 
-        return null;
+        throw new IllegalArgumentException("잘못된 유형의 계산식을 넘겼습니다.");
     }
 }

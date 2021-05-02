@@ -23,8 +23,4 @@ public class ExpressionUtils {
     public static boolean isBlankOrNullExpression(String expression) {
         return expression == null || expression.isEmpty();
     }
-
-    public static Matcher getCustomMatch(String expression) {
-        return Pattern.compile(CUSTOM_SPLIT_PATTERN).matcher(expression);
-    }
 }
