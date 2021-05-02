@@ -4,7 +4,6 @@ import calculator.domain.impl.SplitFactory;
 
 public class StringSplitter {
     private Expression expression;
-    private Numbers numbers;
 
     public StringSplitter(Expression expression) {
         this.expression = expression;
