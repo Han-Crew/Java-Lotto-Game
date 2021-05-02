@@ -10,7 +10,7 @@ public class SplitFactory {
         this.expression = expression;
     }
 
-    public SplitStrategy getSplitFactory() {
+    public SplitStrategy getSplitStrategy() {
         String expressionStr = expression.getExpression();
         if (ExpressionUtils.isDefaultExpression(expressionStr)) {
             return new DefaultSplitStrategy();
