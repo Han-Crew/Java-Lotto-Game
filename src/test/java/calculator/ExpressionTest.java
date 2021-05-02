@@ -2,6 +2,7 @@ package calculator;
 
 import calculator.domain.Expression;
 import calculator.utils.ExpressionUtils;
+import calculator.utils.NumbersUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -9,15 +10,16 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class ExpressionUtilTest {
+public class ExpressionTest {
 
     @Nested
     @DisplayName("숫자,특수문자 경우의 유효성 체크")
     class ValidationTest {
+
         @Test
-        public void 숫자_유효성_테스트() {
+        public void 숫자만_넘긴경우_실패해야한다() {
             String expression = "123";
-            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(true);
+            assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(false);
         }
 
         @Test
@@ -48,13 +50,6 @@ public class ExpressionUtilTest {
         public void 알파벳_유효성_실패_테스트() {
             String expression = "a,b:W";
             assertThat(ExpressionUtils.isDefaultExpression(expression)).isEqualTo(false);
-        }
-
-        @Test
-        public void 음수를_넘기면_실패() {
-            String 음수가_포함된_문자열 = "-1,2,3";
-            assertThatThrownBy(() -> new Expression(음수가_포함된_문자열))
-                    .isInstanceOf(IllegalArgumentException.class);
         }
     }
 

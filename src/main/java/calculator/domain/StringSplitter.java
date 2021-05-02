@@ -4,7 +4,6 @@ import calculator.domain.impl.SplitFactory;
 
 public class StringSplitter {
     private Expression expression;
-    private Numbers numbers;
 
     public StringSplitter(Expression expression) {
         this.expression = expression;
@@ -12,7 +11,7 @@ public class StringSplitter {
 
     public Numbers split() {
         SplitFactory splitFactory = new SplitFactory(expression);
-        SplitStrategy splitStrategy = splitFactory.getSplitFactory();
+        SplitStrategy splitStrategy = splitFactory.getSplitStrategy();
         return new Numbers(splitStrategy.splitNumbers(expression.getExpression()));
     }
 }
