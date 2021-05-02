@@ -14,7 +14,6 @@ public class DefaultSplitStrategy implements SplitStrategy {
         String token[] = expression.split(",|:");
         List<Integer> numbers = Arrays.stream(token).map(Integer::parseInt).collect(Collectors.toList());
 
-        NumbersUtils.validateNumbers(numbers);
         return numbers;
     }
 }
